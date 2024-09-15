@@ -1,0 +1,3 @@
+/home/kasia/Dokumenty/inzynierka/build/CMakeFiles/lbm.dir
+/home/kasia/Dokumenty/inzynierka/build/CMakeFiles/edit_cache.dir
+/home/kasia/Dokumenty/inzynierka/build/CMakeFiles/rebuild_cache.dir

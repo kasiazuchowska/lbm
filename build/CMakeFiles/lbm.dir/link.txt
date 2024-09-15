@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -rdynamic CMakeFiles/lbm.dir/main.cpp.o CMakeFiles/lbm.dir/src/lbm.cpp.o -o lbm 
