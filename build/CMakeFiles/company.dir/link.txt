@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/company.dir/main.cpp.o CMakeFiles/company.dir/src/lbm.cpp.o -o company 

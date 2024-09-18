@@ -113,3 +113,4 @@ void lbm::velocities_after(std::ofstream& f, int iterations){
         f << std::endl;
     }        
 }
+
