@@ -26,4 +26,5 @@ public:
     void compute();
     void velocities_for_point(int iterations, int x=0, int y=0);
     void velocities_after(std::ofstream& f, int iterations);
+    void velocities_after_print_for_each_iteration(std::ofstream& f, int iterations);
 };

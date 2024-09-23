@@ -11,9 +11,6 @@ echo "running"
 
 ./lbm
 
-gnuplot ../plot.sh
-
-mv rysunek.png ../results/rysunek.png
 
 
 

@@ -114,3 +114,18 @@ void lbm::velocities_after(std::ofstream& f, int iterations){
     }        
 }
 
+void lbm::velocities_after_print_for_each_iteration(std::ofstream& f, int iterations){
+    for(int ite = 0; ite < iterations; ite++){
+        compute();
+        f << "Iteration " << ite << std::endl;
+        for(int i = 0; i < Lx ; i++){
+            for(int j = 0; j < Ly; j++){
+                f << i << " " << j << " " << U[i][j] << " " << V[i][j] << std::endl;
+            }
+            f << std::endl;
+        }
+        f << std::endl;
+    }
+            
+}
+
