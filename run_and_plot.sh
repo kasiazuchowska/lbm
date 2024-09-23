@@ -6,7 +6,6 @@ cmake ..
 
 make
 
-
 echo "running"
 
 ./lbm
