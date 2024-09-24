@@ -17,14 +17,14 @@ int main(){
     std::ofstream ite1000("velocity_1000_ite.dat");
     std::ofstream ite2000("velocity_2000_ite.dat");
 
-    test.velocities_after(ite10, 10);
-    test.velocities_after(ite50, 50);
-    test.velocities_after(ite100, 100);
-    test.velocities_after(ite500, 500);
-    test.velocities_after(ite1000, 1000);
-    test.velocities_after(ite2000, 2000);
+    // test.velocities_after(ite10, 10);
+    // test.velocities_after(ite50, 50);
+    // test.velocities_after(ite100, 100);
+    // test.velocities_after(ite500, 500);
+    // test.velocities_after(ite1000, 1000);
+    // test.velocities_after(ite2000, 2000);
 
 
     // test.velocities_after(f1, 1000);
-    // test.velocities_after_print_for_each_iteration(f2, 100);
+    test.velocities_after_print_for_each_iteration(f2, 100);
 }

@@ -125,7 +125,6 @@ void lbm::velocities_after_print_for_each_iteration(std::ofstream& f, int iterat
             f << std::endl;
         }
         f << std::endl;
-    }
-            
+        f << std::endl;
+    }          
 }
-

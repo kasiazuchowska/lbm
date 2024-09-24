@@ -10,6 +10,8 @@ endif ()
 
 add_definitions(-DPROJECTPATH=\"${PROJECT_SOURCE_DIR}\")
 
+add_compile_options(-O3 -Wall)
+
 set(CMAKE_BUILD_TYPE Debug) #Release
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

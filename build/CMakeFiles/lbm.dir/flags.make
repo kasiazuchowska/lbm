@@ -6,5 +6,5 @@ CXX_DEFINES = -DPROJECTPATH=\"/home/katarzyna/git/lbm\"
 
 CXX_INCLUDES = -I/home/katarzyna/git/lbm/include
 
-CXX_FLAGS = -g -std=gnu++11
+CXX_FLAGS = -g -std=gnu++11 -O3 -Wall
 
