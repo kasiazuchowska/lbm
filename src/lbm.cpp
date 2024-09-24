@@ -96,6 +96,37 @@ void lbm::compute(){
     transport();
 }
 
+double lbm::calculate_drag_force(){
+    double F_D = 0.;
+
+    for (int i = 0; i < Lx; ++i) {
+        for (int j = 0; j < Ly; ++j) {
+            if(f[i][j] == 0){
+                for(int k = 0; k < 9; k++){
+                    int ip = (i + ex[k] + Lx) % (Lx);
+                    int jp = (j + ey[k]);
+
+                    if(f[ip][jp] == 1){
+                        std::cout << df[1-c][ip][jp][inv[k]] - df[c][i][j][k]<< std::endl;
+                        F_D += df[1-c][ip][jp][inv[k]] - df[c][i][j][k];
+                    }
+                        
+                }
+            }
+        }
+    }
+
+    return F_D;
+}
+
+double lbm::calculate_drag_coefficient(double force, double rho){
+    double R = (double)Ly/5;
+    double A = M_PI*R*R; //przekroj ciala
+
+    return (2.0 * force) / (rho * fx * fx * A);
+
+}
+
 void lbm::velocities_for_point(int iterations, int x, int y){
     for(int i = 0; i < iterations; i++){
         compute();

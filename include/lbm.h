@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 class lbm{
 private:
@@ -30,4 +31,6 @@ public:
     void velocities_for_point(int iterations, int x=0, int y=0);
     void velocities_after(std::ofstream& f, int iterations);
     void velocities_after_print_for_each_iteration(std::ofstream& f, int iterations);
+    double calculate_drag_force();
+    double calculate_drag_coefficient(double force, double rho);
 };
