@@ -36,7 +36,7 @@ lbm3D::lbm3D(int Lx, int Ly, int Lz) : df(2, std::vector<std::vector<std::vector
     for(int i = 0; i < Lx; i++)
         for(int j = 0; j < Ly; j++)
             for(int k = 0; k < Lz; k++)
-                if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) + (k-Lz/2) * (k-Lz/2) < R*R*R)
+                if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) + (k-Lz/2) * (k-Lz/2) < R*R)
                     f[i][j][k] = 1;
 
 
