@@ -12,4 +12,4 @@ set title "3D Velocity"
 set view 60, 30
 
 # Plot using the first three columns as the coordinates and scaling the velocity components
-splot 'velocity_3D.dat' using 1:2:3:($4*1000):($5*1000):($6*1000) with vectors
+splot 'velocity_3D.dat' using 1:2:3:($4*100):($5*100):($6*100) with vectors
