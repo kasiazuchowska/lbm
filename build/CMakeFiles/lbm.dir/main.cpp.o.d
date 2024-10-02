@@ -167,4 +167,5 @@ CMakeFiles/lbm.dir/main.cpp.o: /home/katarzyna/git/lbm/main.cpp \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /home/katarzyna/git/lbm/include/lbm3D.h

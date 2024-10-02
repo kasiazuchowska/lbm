@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/lbm.dir/main.cpp.o.d"
   "CMakeFiles/lbm.dir/src/lbm.cpp.o"
   "CMakeFiles/lbm.dir/src/lbm.cpp.o.d"
+  "CMakeFiles/lbm.dir/src/lbm3D.cpp.o"
+  "CMakeFiles/lbm.dir/src/lbm3D.cpp.o.d"
   "lbm"
   "lbm.pdb"
 )

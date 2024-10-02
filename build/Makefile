@@ -177,6 +177,30 @@ src/lbm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lbm.dir/build.make CMakeFiles/lbm.dir/src/lbm.cpp.s
 .PHONY : src/lbm.cpp.s
 
+src/lbm3D.o: src/lbm3D.cpp.o
+.PHONY : src/lbm3D.o
+
+# target to build an object file
+src/lbm3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lbm.dir/build.make CMakeFiles/lbm.dir/src/lbm3D.cpp.o
+.PHONY : src/lbm3D.cpp.o
+
+src/lbm3D.i: src/lbm3D.cpp.i
+.PHONY : src/lbm3D.i
+
+# target to preprocess a source file
+src/lbm3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lbm.dir/build.make CMakeFiles/lbm.dir/src/lbm3D.cpp.i
+.PHONY : src/lbm3D.cpp.i
+
+src/lbm3D.s: src/lbm3D.cpp.s
+.PHONY : src/lbm3D.s
+
+# target to generate assembly for a file
+src/lbm3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lbm.dir/build.make CMakeFiles/lbm.dir/src/lbm3D.cpp.s
+.PHONY : src/lbm3D.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/lbm.o"
 	@echo "... src/lbm.i"
 	@echo "... src/lbm.s"
+	@echo "... src/lbm3D.o"
+	@echo "... src/lbm3D.i"
+	@echo "... src/lbm3D.s"
 .PHONY : help
 
 

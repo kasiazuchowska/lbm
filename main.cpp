@@ -1,9 +1,11 @@
 #include "lbm.h"
+#include "lbm3D.h"
 #include <fstream>
 
 
 int main(){
     lbm test = lbm(100,50);
+    lbm3D test3D = lbm3D(100,60,60);
     //test.compute();
     //test.velocities_for_point(100, 2, 2);
     std::ofstream f1("velocity.dat");
@@ -17,6 +19,8 @@ int main(){
     std::ofstream ite1000("velocity_1000_ite.dat");
     std::ofstream ite2000("velocity_2000_ite.dat");
 
+    std::ofstream f1_3D("velocity_3D.dat");
+
     // test.velocities_after(ite10, 10);
     // test.velocities_after(ite50, 50);
     // test.velocities_after(ite100, 100);
@@ -25,7 +29,10 @@ int main(){
     // test.velocities_after(ite2000, 2000);
 
 
-    test.velocities_after(f1, 1000);
+    // test.velocities_after(f1, 1000);
     // test.velocities_after_print_for_each_iteration(f2, 100);
-    std::cout << test.calculate_drag_coefficient(test.calculate_drag_force(), 1000) << std::endl; //biore gestosc wody
+    // std::cout << test.calculate_drag_coefficient(test.calculate_drag_force(), 1000) << std::endl; //biore gestosc wody
+
+
+    test3D.velocities_after(f1_3D, 1000);
 }

@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/katarzyna/git/lbm/main.cpp" "CMakeFiles/lbm.dir/main.cpp.o" "gcc" "CMakeFiles/lbm.dir/main.cpp.o.d"
   "/home/katarzyna/git/lbm/src/lbm.cpp" "CMakeFiles/lbm.dir/src/lbm.cpp.o" "gcc" "CMakeFiles/lbm.dir/src/lbm.cpp.o.d"
+  "/home/katarzyna/git/lbm/src/lbm3D.cpp" "CMakeFiles/lbm.dir/src/lbm3D.cpp.o" "gcc" "CMakeFiles/lbm.dir/src/lbm3D.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
