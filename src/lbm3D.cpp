@@ -21,7 +21,7 @@ lbm3D::lbm3D(int Lx, int Ly, int Lz) : df(2, std::vector<std::vector<std::vector
         for(int j = 0; j < Ly; j++)
             for(int k = 0; k < Lz; k++)
                 for(int l = 0; l < 15; l++){
-                    df[0][i][j][k][l] = df[1][i][j][k][l] = w[k];
+                    df[0][i][j][k][l] = df[1][i][j][k][l] = w[l];
                 // std::cout << i << " " << j << " " << k << " " << df[0][i][j][k] << std::endl;
                 }
                 
@@ -38,6 +38,17 @@ lbm3D::lbm3D(int Lx, int Ly, int Lz) : df(2, std::vector<std::vector<std::vector
             for(int k = 0; k < Lz; k++)
                 if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) + (k-Lz/2) * (k-Lz/2) < R*R*R)
                     f[i][j][k] = 1;
+
+
+    // for(int i = 0; i < Lx ; i++){
+    //     for(int j = 0; j < Ly; j++){
+    //         for(int k = 0; k < Lz; k++){
+    //             f << i << " " << j << " " << k << " " << UX[i][j][k] << " " << UY[i][j][k] << " " << UZ[i][j][k] << std::endl;
+    //         }
+    //         f << std::endl;
+    //     }    
+    //     f << std::endl;
+    // }
 }
 
 

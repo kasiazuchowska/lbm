@@ -3,6 +3,7 @@
 
 CMakeFiles/lbm.dir/main.cpp.o: /home/katarzyna/git/lbm/main.cpp \
   /home/katarzyna/git/lbm/include/lbm.h \
+  /home/katarzyna/git/lbm/include/lbm3D.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -629,8 +630,6 @@ CMakeFiles/lbm.dir/src/lbm3D.cpp.o: /home/katarzyna/git/lbm/src/lbm3D.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 
-/home/katarzyna/git/lbm/include/lbm3D.h:
-
 /home/katarzyna/git/lbm/src/lbm3D.cpp:
 
 /home/katarzyna/git/lbm/src/lbm.cpp:
@@ -741,6 +740,8 @@ CMakeFiles/lbm.dir/src/lbm3D.cpp.o: /home/katarzyna/git/lbm/src/lbm3D.cpp \
 
 /usr/include/c++/13/bits/stl_uninitialized.h:
 
+/home/katarzyna/git/lbm/include/lbm3D.h:
+
 /usr/include/c++/13/bits/move.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
@@ -841,9 +842,19 @@ CMakeFiles/lbm.dir/src/lbm3D.cpp.o: /home/katarzyna/git/lbm/src/lbm3D.cpp \
 
 /usr/include/asm-generic/errno-base.h:
 
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
 /usr/include/alloca.h:
 
 /usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
@@ -861,6 +872,10 @@ CMakeFiles/lbm.dir/src/lbm3D.cpp.o: /home/katarzyna/git/lbm/src/lbm3D.cpp \
 
 /usr/include/c++/13/cmath:
 
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/include/c++/13/ostream:
+
 /usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/c++/13/bits/memoryfwd.h:
@@ -874,16 +889,6 @@ CMakeFiles/lbm.dir/src/lbm3D.cpp.o: /home/katarzyna/git/lbm/src/lbm3D.cpp \
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/c++/13/type_traits:
-
-/usr/include/c++/13/ostream:
-
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/include/c++/13/bits/cxxabi_forced.h:
 
@@ -1046,7 +1051,3 @@ CMakeFiles/lbm.dir/src/lbm3D.cpp.o: /home/katarzyna/git/lbm/src/lbm3D.cpp \
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
