@@ -107,7 +107,7 @@ double lbm::calculate_drag_force(){
                     int jp = (j + ey[k]);
 
                     if(f[ip][jp] == 1 && jp != 0 && jp != (Ly-1)){ //exclude top and bottom
-                        std::cout << fabs(df[1-c][ip][jp][inv[k]] - df[c][i][j][k])<< std::endl;
+                        // std::cout << fabs(df[1-c][ip][jp][inv[k]] - df[c][i][j][k])<< std::endl;
                         F_D += fabs(df[1-c][ip][jp][inv[k]] - df[c][i][j][k]);
                     }
                         
