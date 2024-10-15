@@ -27,9 +27,16 @@ lbm3D::lbm3D(int Lx, int Ly, int Lz) : df(2, std::vector<std::vector<std::vector
                 
     
     //warunki brzegowe
-    for(int i = 0; i < Lx; i++)
+    for(int i = 0; i < Lx; i++){
         for(int j =0; j < Lz; j++)
             f[i][0][j] = f[i][Ly-1][j] = 1;
+        
+        for(int j =0; j < Lz; j++)
+            f[i][j][0] = f[i][j][Lz-1] = 1;
+    }
+        
+
+        
 
     //rysuj kolko
     double R = (double)Ly/5;
@@ -107,8 +114,8 @@ void lbm3D::transport(){
                 if(f[i][j][k] == 0){
                     for(int l = 0; l < 15; l++){
                         int ip = (i + ex[l] + Lx) % (Lx);
-                        int jp = (j + ey[l] + Ly) % (Ly);
-                        int kp = (k + ez[l] + Lz) % (Lz);
+                        int jp = (j + ey[l]);
+                        int kp = (k + ez[l]);
 
                         if(f[ip][jp][kp] == 1)
                             df[1-c][i][j][k][inv[l]] = df[c][i][j][k][l];
