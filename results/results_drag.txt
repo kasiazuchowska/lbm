@@ -1,3 +1,7 @@
 Drag coeficient: 46.7911
 Mean velocity: 0.00145607
 Reynolds number: 0.349457
+
+Drag coeficient: 8.46323
+Mean velocity: 0.00830713
+Reynolds number: 1.99371
