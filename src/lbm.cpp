@@ -121,7 +121,7 @@ double lbm::calculate_drag_force(){
 
 double lbm::calculate_drag_coefficient(double force, double rho){
     double R = (double)Ly/5;
-    double A = M_PI*R*R; //przekroj ciala
+    double A = 2*R; //M_PI*R*R; //przekroj ciala
     double mean_velocity = calculate_mean_velocity();
 
     return (2.0 * force) / (rho * mean_velocity * mean_velocity * A);
