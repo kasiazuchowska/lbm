@@ -122,23 +122,33 @@ double lbm::calculate_drag_force(){
 double lbm::calculate_drag_coefficient(double force, double rho){
     double R = (double)Ly/5;
     double A = M_PI*R*R; //przekroj ciala
+    double mean_velocity = calculate_mean_velocity();
 
-    return (2.0 * force) / (rho * fx * fx * A);
+    return (2.0 * force) / (rho * mean_velocity * mean_velocity * A);
 
 }
 
 double lbm::calculate_mean_velocity(){
     double res_sum = 0;
     double res_count = 0;
-    for(int i = 0; i < Lx; i++)
-        for(int j = 0; j < Ly; j++)
-            if(f[i][j] == 0){
-                res_sum += U[i][j];
-                res_sum += V[i][j];
-                res_count ++;
-            }
+    int i = 2;
+
+    for(int j = 0; j < Ly; j++)
+        if(f[i][j] == 0){
+            res_sum += U[i][j];
+            res_sum += V[i][j];
+            res_count ++;
+        }
     
     return res_sum/res_count/2; // /2 bo dwie skladowe
+}
+
+double lbm::calculate_reynolds(){
+    double mean_velocity = calculate_mean_velocity();
+    double L = 40; //2*R
+    double viscosity = (2*tau-1)/6;
+
+    return mean_velocity*L/viscosity;
 }
 
 void lbm::velocities_for_point(int iterations, int x, int y){

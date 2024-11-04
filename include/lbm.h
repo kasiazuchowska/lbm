@@ -36,4 +36,5 @@ public:
     double calculate_drag_force();
     double calculate_drag_coefficient(double force, double rho);
     double calculate_mean_velocity();
+    double calculate_reynolds();
 };
