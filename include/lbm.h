@@ -35,4 +35,5 @@ public:
     void velocities_after_print_for_each_iteration(std::ofstream& f, int iterations);
     double calculate_drag_force();
     double calculate_drag_coefficient(double force, double rho);
+    double calculate_mean_velocity();
 };

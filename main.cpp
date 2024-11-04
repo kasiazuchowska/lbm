@@ -31,7 +31,9 @@ int main(){
 
     test.velocities_after(f1, 1000);
     // test.velocities_after_print_for_each_iteration(f2, 100);
-    std::cout << test.calculate_drag_coefficient(test.calculate_drag_force(), 1000) << std::endl; //biore gestosc wody
+    std::cout << test.calculate_drag_coefficient(test.calculate_drag_force(), 1.2) << std::endl; //biore gestosc powietrza
+    std::cout << test.calculate_mean_velocity() << std::endl;
+
 
 
     // test3D.velocities_after(f1_3D, 1000);

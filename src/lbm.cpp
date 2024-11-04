@@ -127,6 +127,20 @@ double lbm::calculate_drag_coefficient(double force, double rho){
 
 }
 
+double lbm::calculate_mean_velocity(){
+    double res_sum = 0;
+    double res_count = 0;
+    for(int i = 0; i < Lx; i++)
+        for(int j = 0; j < Ly; j++)
+            if(f[i][j] == 0){
+                res_sum += U[i][j];
+                res_sum += V[i][j];
+                res_count ++;
+            }
+    
+    return res_sum/res_count/2; // /2 bo dwie skladowe
+}
+
 void lbm::velocities_for_point(int iterations, int x, int y){
     for(int i = 0; i < iterations; i++){
         compute();
