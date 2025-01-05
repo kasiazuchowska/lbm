@@ -20,7 +20,7 @@ private:
     
     
 
-    const double fx = 0.000014; //0.00008 for reynolds = 2 // sila zewnetrzna moze jako argument
+    const double fx = 0.000054;//0.00008;//0.000014; //0.00008 for reynolds = 2 // sila zewnetrzna moze jako argument
     const double tau = 1.;
 
     int c;

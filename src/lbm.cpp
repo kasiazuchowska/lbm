@@ -23,11 +23,19 @@ lbm::lbm(int Lx, int Ly) : df(2, std::vector<std::vector<std::vector<double>>>(
         f[i][0] = f[i][Ly-1] = 1;
 
     //rysuj kolko
-    double R = (double)Ly/5;
-    for(int i = 0; i < Lx; i++)
-        for(int j = 0; j < Ly; j++)
-            if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) < R*R)
+    // double R = (double)Ly/5;
+    // for(int i = 0; i < Lx; i++)
+    //     for(int j = 0; j < Ly; j++)
+    //         if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) < R*R)
+    //             f[i][j] = 1;
+    double a = (double)Lx / 7; // Półosie elipsy: większa w wymiarze x
+    double b = (double)Ly / 10; // Mniejsza w wymiarze y
+    for (int i = 0; i < Lx; i++) {
+        for (int j = 0; j < Ly; j++) {
+            if (((i - Lx / 2) * (i - Lx / 2)) / (a * a) + ((j - Ly / 2) * (j - Ly / 2)) / (b * b) < 1)
                 f[i][j] = 1;
+        }
+    }
 }
 
 
