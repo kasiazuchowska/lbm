@@ -23,19 +23,19 @@ lbm::lbm(int Lx, int Ly) : df(2, std::vector<std::vector<std::vector<double>>>(
         f[i][0] = f[i][Ly-1] = 1;
 
     //rysuj kolko
-    // double R = (double)Ly/5;
-    // for(int i = 0; i < Lx; i++)
-    //     for(int j = 0; j < Ly; j++)
-    //         if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) < R*R)
-    //             f[i][j] = 1;
-    double a = (double)Lx / 7; // Półosie elipsy: większa w wymiarze x
-    double b = (double)Ly / 10; // Mniejsza w wymiarze y
-    for (int i = 0; i < Lx; i++) {
-        for (int j = 0; j < Ly; j++) {
-            if (((i - Lx / 2) * (i - Lx / 2)) / (a * a) + ((j - Ly / 2) * (j - Ly / 2)) / (b * b) < 1)
+    double R = (double)Ly/5;
+    for(int i = 0; i < Lx; i++)
+        for(int j = 0; j < Ly; j++)
+            if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) < R*R)
                 f[i][j] = 1;
-        }
-    }
+    // double a = (double)Lx / 7; // Półosie elipsy: większa w wymiarze x
+    // double b = (double)Ly / 10; // Mniejsza w wymiarze y
+    // for (int i = 0; i < Lx; i++) {
+    //     for (int j = 0; j < Ly; j++) {
+    //         if (((i - Lx / 2) * (i - Lx / 2)) / (a * a) + ((j - Ly / 2) * (j - Ly / 2)) / (b * b) < 1)
+    //             f[i][j] = 1;
+    //     }
+    // }
 }
 
 
@@ -116,7 +116,7 @@ double lbm::calculate_drag_force(){
 
                     if(f[ip][jp] == 1 && jp != 0 && jp != (Ly-1)){ //exclude top and bottom
                         // std::cout << fabs(df[1-c][ip][jp][inv[k]] - df[c][i][j][k])<< std::endl;
-                        F_D += fabs(df[1-c][ip][jp][inv[k]] - df[c][i][j][k]);
+                        F_D += df[1-c][ip][jp][inv[k]] - df[c][i][j][k];
                     }
                         
                 }
@@ -139,22 +139,28 @@ double lbm::calculate_drag_coefficient(double force, double rho){
 double lbm::calculate_mean_velocity(){
     double res_sum = 0;
     double res_count = 0;
-    int i = 2;
+    //int i = 2;
 
+    for(int i=0;i<Lx;i++)
     for(int j = 0; j < Ly; j++)
         if(f[i][j] == 0){
-            res_sum += U[i][j];
-            res_sum += V[i][j];
+            res_sum+=sqrt(U[i][j]*U[i][j]+V[i][j]*V[i][j]);
+            // res_sum += U[i][j];
+            // res_sum += V[i][j];
             res_count ++;
         }
     
-    return res_sum/res_count/2; // /2 bo dwie skladowe
+    return res_sum/res_count; // /2 bo dwie skladowe
 }
 
 double lbm::calculate_reynolds(){
     double mean_velocity = calculate_mean_velocity();
-    double L = 40; //2*R
+    double R = (double)Ly/5;
+    double L = 2*R; //2*R
     double viscosity = (2*tau-1)/6;
+
+    std::cout << "L= " << L << std::endl;
+    std::cout << "viscosity: " << viscosity << std::endl;
 
     return mean_velocity*L/viscosity;
 }

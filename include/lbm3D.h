@@ -22,7 +22,7 @@ private:
     
     
 
-    const double fx = -0.0000065; // sila zewnetrzna moze jako argument
+    const double fx = -0.000021;//-0.0000012;//-0.0000023;//-0.0000065; // sila zewnetrzna moze jako argument
     const double tau = 1.;
 
     int c;

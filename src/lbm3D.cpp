@@ -28,7 +28,7 @@ lbm3D::lbm3D(int Lx, int Ly, int Lz) : df(2, std::vector<std::vector<std::vector
     
     //warunki brzegowe
     for(int i = 0; i < Lx; i++){
-        for(int j =0; j < Lz; j++)
+        for(int j =0; j < Ly; j++)
             f[i][0][j] = f[i][Ly-1][j] = 1;
         
         for(int j =0; j < Lz; j++)
@@ -39,12 +39,30 @@ lbm3D::lbm3D(int Lx, int Ly, int Lz) : df(2, std::vector<std::vector<std::vector
         
 
     //rysuj kolko
-    double R = (double)Ly/5;
-    for(int i = 0; i < Lx; i++)
-        for(int j = 0; j < Ly; j++)
-            for(int k = 0; k < Lz; k++)
-                if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) + (k-Lz/2) * (k-Lz/2) < R*R)
+    // double R = (double)Ly/5;
+    // for(int i = 0; i < Lx; i++)
+    //     for(int j = 0; j < Ly; j++)
+    //         for(int k = 0; k < Lz; k++)
+    //             if((i-Lx/2) * (i-Lx/2) + (j-Ly/2) * (j-Ly/2) + (k-Lz/2) * (k-Lz/2) < R*R)
+    //                 f[i][j][k] = 1;
+
+    double a = (double)Lx / 3; // Promień wzdłuż osi x (największy)
+    double b = (double)Ly / 5; // Promień wzdłuż osi y i z (taki sam)
+    int centerX = Lx / 2;
+    int centerY = Ly / 2;
+    int centerZ = Lz / 2;
+
+    for (int i = 0; i < Lx; i++) {
+        for (int j = 0; j < Ly; j++) {
+            for (int k = 0; k < Lz; k++) {
+                if (((i - centerX) * (i - centerX)) / (a * a) +
+                    ((j - centerY) * (j - centerY)) / (b * b) +
+                    ((k - centerZ) * (k - centerZ)) / (b * b) <= 1) {
                     f[i][j][k] = 1;
+                }
+            }
+        }
+    }
 
 
     // for(int i = 0; i < Lx ; i++){
@@ -144,4 +162,73 @@ void lbm3D::velocities_after(std::ofstream& f, int iterations){
         }    
         f << std::endl;
     }        
+}
+
+double lbm3D::calculate_drag_force(){
+    double F_D = 0.;
+
+    for (int i = 0; i < Lx; ++i) {
+        for (int j = 0; j < Ly; ++j) {
+            for(int k = 0; k < Lz; k++){
+                if(f[i][j][k] == 0){
+                    for(int l = 0; l < 15; l++){
+                        int ip = (i + ex[l] + Lx) % (Lx);
+                        int jp = (j + ey[l]);
+                        int kp = (k + ez[l]);
+
+                        if(f[ip][jp][kp] == 1 && jp != 0 && jp != (Ly-1) && kp != 0 && kp != (Lz-1)){ //exclude top and bottom
+                            // std::cout << fabs(df[1-c][ip][jp][inv[k]] - df[c][i][j][k])<< std::endl;
+                            F_D += (df[1-c][ip][jp][kp][inv[l]] - df[c][i][j][k][l]);
+                        }
+                            
+                    }
+                }
+            }
+        }
+    }
+
+    return F_D;
+}
+
+double lbm3D::calculate_drag_coefficient(double force, double rho){
+    double R = (double)Lx/3;
+    double A = 2*R;//M_PI*R*R; //M_PI*R*R; //przekroj ciala
+    double mean_velocity = calculate_mean_velocity();
+
+    return (2.0 * force) / (rho * mean_velocity * mean_velocity * A);
+
+}
+
+double lbm3D::calculate_mean_velocity(){
+    double res_sum = 0;
+    double res_count = 0;
+
+
+    int i = Lx-2;
+    //for(int i=0; i < Lx;i++)
+    for(int j = 0; j < Ly; j++)
+        for(int k = 0; k < Lz; k++){
+            if(f[i][j][k] == 0){
+                res_sum += sqrt(UX[i][j][k]*UX[i][j][k]+UY[i][j][k]*UY[i][j][k]+UZ[i][j][k]*UZ[i][j][k]);
+                // res_sum += UX[i][j][k];
+                // res_sum += UY[i][j][k];
+                // res_sum += UZ[i][j][k];
+                res_count ++;
+            }
+        }
+        
+    
+    return res_sum/res_count; // /3 bo trzy skladowe
+}
+
+double lbm3D::calculate_reynolds(){
+    double mean_velocity = fabs(calculate_mean_velocity());
+    double R = (double)Lx/3;
+    double L = 2*R;//M_PI*R*R; //2*R //dlugosc charakterystyczna
+    double viscosity = (2*tau-1)/6;
+
+    std::cout << "L= " << L << std::endl;
+    std::cout << "viscosity: " << viscosity << std::endl;
+
+    return mean_velocity*L/viscosity;
 }

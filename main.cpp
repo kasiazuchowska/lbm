@@ -19,7 +19,7 @@ int main(){
     // std::ofstream ite1000("velocity_1000_ite.dat");
     // std::ofstream ite2000("velocity_2000_ite.dat");
 
-    //std::ofstream f1_3D("velocity_3D.dat");
+    std::ofstream f1_3D("velocity_3D.dat");
 
     // test.velocities_after(ite10, 10);
     // test.velocities_after(ite50, 50);
@@ -29,14 +29,18 @@ int main(){
     // test.velocities_after(ite2000, 2000);
 
 
-    test.velocities_after(f1, 1000);
-    // test.velocities_after_print_for_each_iteration(f2, 100);
-    std::cout << "Drag force: " << test.calculate_drag_force() << std::endl;
-    std::cout << "Drag coeficient: " << test.calculate_drag_coefficient(test.calculate_drag_force(), 1.2) << std::endl; //biore gestosc powietrza
-    std::cout << "Mean velocity: " << test.calculate_mean_velocity() << std::endl;
-    std::cout << "Reynolds number: " << test.calculate_reynolds() << std::endl;
+    // test.velocities_after(f1, 1000);
+    // //test.velocities_after_print_for_each_iteration(f2, 100);
+    // std::cout << "Drag force: " << test.calculate_drag_force() << std::endl;
+    // std::cout << "Drag coeficient: " << test.calculate_drag_coefficient(test.calculate_drag_force(), 1.2) << std::endl; //biore gestosc powietrza
+    // std::cout << "Mean velocity: " << test.calculate_mean_velocity() << std::endl;
+    // std::cout << "Reynolds number: " << test.calculate_reynolds() << std::endl;
 
 
 
-    //test3D.velocities_after(f1_3D, 1000);
+    test3D.velocities_after(f1_3D, 1000);
+    std::cout << "Drag force: " << test3D.calculate_drag_force() << std::endl;
+    std::cout << "Drag coeficient: " << test3D.calculate_drag_coefficient(test3D.calculate_drag_force(), 1.2) << std::endl; //biore gestosc powietrza
+    std::cout << "Mean velocity: " << test3D.calculate_mean_velocity() << std::endl;
+    std::cout << "Reynolds number: " << test3D.calculate_reynolds() << std::endl;
 }
